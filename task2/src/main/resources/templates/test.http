@@ -1,0 +1,4 @@
+GET http://localhost:8080/authorize?user=John&password=111
+Accept: application/json
+
+###
