@@ -8,20 +8,29 @@ import ru.netology.authorization.exceptions.InvalidCredentials;
 import ru.netology.authorization.exceptions.InvalidPassword;
 import ru.netology.authorization.exceptions.UnauthorizedUser;
 
+import javax.validation.ConstraintViolationException;
+
 @RestControllerAdvice
 public class ControllerAdvice {
     @ExceptionHandler(InvalidPassword.class)
-    public ResponseEntity<String> handleInvalidPassword(InvalidPassword e) {
+    public ResponseEntity<String> handleInvalidPasswordException(InvalidPassword e) {
         return new ResponseEntity<>(e.getMessage(), HttpStatus.FORBIDDEN);
     }
 
     @ExceptionHandler(InvalidCredentials.class)
-    public ResponseEntity<String> handleInvalidCredentials(InvalidCredentials e) {
+    public ResponseEntity<String> handleInvalidCredentialsException(InvalidCredentials e) {
         return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
     }
 
     @ExceptionHandler(UnauthorizedUser.class)
-    public ResponseEntity<String> handleUnauthorizedUser(UnauthorizedUser e) {
+    public ResponseEntity<String> handleUnauthorizedUserException(UnauthorizedUser e) {
         return new ResponseEntity<>(e.getMessage(), HttpStatus.UNAUTHORIZED);
     }
+
+
+    @ExceptionHandler(ConstraintViolationException.class)
+    public ResponseEntity<String> handleConstraintViolationException(ConstraintViolationException e) {
+        return new ResponseEntity<>(e.getMessage(), HttpStatus.UNAUTHORIZED);
+    }
+
 }
