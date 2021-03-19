@@ -48,8 +48,8 @@ http {
 	    proxy_pass http://myservers;
 	}
 
-        location /forms/ {
-            root   /Users/maksim/static;
+        location /signin/ {
+	   root /Users/maksim/Desktop/SpringHomeworks/SpringBootTasks/task2/static/forms;
         }
 
         #error_page  404              /404.html;
