@@ -1,0 +1,9 @@
+version: "3.8"
+
+services:
+  authorization_app:
+    build:
+      ./
+    image: authorization_app_image
+    ports:
+    - 8080:8888
